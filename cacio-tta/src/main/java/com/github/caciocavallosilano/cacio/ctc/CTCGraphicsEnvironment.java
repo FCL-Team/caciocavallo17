@@ -28,11 +28,17 @@ import java.awt.GraphicsDevice;
 
 import sun.java2d.SunGraphicsEnvironment;
 import sun.java2d.SurfaceManagerFactory;
+import com.github.caciocavallosilano.cacio.ctc.CacioSurfaceManagerFactory;
 
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 
     public CTCGraphicsEnvironment() {
-        SurfaceManagerFactory.setInstance(new CTCSurfaceManagerFactory());
+          try {
+                CacioSurfaceManagerFactory.setInstance(new CTCSurfaceManagerFactory_high());
+          } catch (Exception | NoClassDefFoundError e) {
+                // 同时捕获Exception和NoClassDefFoundError
+                CacioSurfaceManagerFactory.setInstance(new CTCSurfaceManagerFactory_high());
+          }
     }
 
     @Override

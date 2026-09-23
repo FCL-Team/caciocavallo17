@@ -37,3 +37,13 @@ class CTCSurfaceManagerFactory extends SurfaceManagerFactory {
     }
 
 }
+
+class CTCSurfaceManagerFactory_high extends CacioSurfaceManagerFactory {
+
+    @Override
+    public VolatileSurfaceManager createVolatileManager(SunVolatileImage image,
+            Object context) {
+        return new CTCVolatileSurfaceManager(image, context);
+    }
+
+}
