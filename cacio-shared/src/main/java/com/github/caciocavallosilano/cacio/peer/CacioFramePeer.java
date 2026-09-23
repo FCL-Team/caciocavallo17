@@ -35,6 +35,33 @@ import java.awt.peer.MenuBarPeer;
 import javax.swing.JMenuBar;
 import javax.swing.JRootPane;
 
+import java.awt.AWTEvent;
+import java.awt.AWTException;
+import java.awt.BufferCapabilities;
+import java.awt.BufferCapabilities.FlipContents;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.event.FocusEvent;
+import java.awt.event.PaintEvent;
+import java.awt.event.WindowEvent;
+import java.awt.image.ColorModel;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
+import java.awt.image.VolatileImage;
+import java.awt.peer.ComponentPeer;
+import java.awt.peer.ContainerPeer;
+import java.awt.peer.WindowPeer;
+import sun.java2d.pipe.Region;
+
 class CacioFramePeer extends CacioWindowPeer implements FramePeer {
 
     public CacioFramePeer(Frame awtC, PlatformWindowFactory pwf) {
@@ -116,7 +143,15 @@ class CacioFramePeer extends CacioWindowPeer implements FramePeer {
     }
 
     @Override
-    public GraphicsConfiguration getAppropriateGraphicsConfiguration(GraphicsConfiguration gc) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean requestFocus(Component lightweightChild, boolean temporary,
+                           boolean focusedWindowChangeAllowed, long time,
+                           FocusEvent.Cause cause) {
+       // 这里可以添加焦点请求的逻辑
+       // 例如，通知窗口管理器这个窗口应该获得焦点
+       getToplevelWindow().requestFocus();
+    
+       // 返回 true 表示焦点请求成功
+       return true;
     }
+
 }

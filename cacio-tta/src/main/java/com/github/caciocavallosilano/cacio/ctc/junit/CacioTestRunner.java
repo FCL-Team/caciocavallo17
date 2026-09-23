@@ -44,8 +44,7 @@ public class CacioTestRunner extends BlockJUnit4ClassRunner {
 
     static {
         try {
-            var lookup = MethodHandles.privateLookupIn(Field.class, MethodHandles.lookup());
-            MODIFIERS = lookup.findVarHandle(Field.class, "modifiers", int.class);
+            MethodHandles.Lookup lookup = MethodHandles.privateLookupIn(Field.class, MethodHandles.lookup());            MODIFIERS = lookup.findVarHandle(Field.class, "modifiers", int.class);
         } catch (IllegalAccessException | NoSuchFieldException ex) {
             throw new RuntimeException(ex);
         }

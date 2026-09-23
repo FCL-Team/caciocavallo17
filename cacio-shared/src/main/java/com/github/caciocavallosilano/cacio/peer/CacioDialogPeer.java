@@ -75,8 +75,4 @@ class CacioDialogPeer extends CacioWindowPeer implements DialogPeer {
         }
     }
 
-    @Override
-    public GraphicsConfiguration getAppropriateGraphicsConfiguration(GraphicsConfiguration gc) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

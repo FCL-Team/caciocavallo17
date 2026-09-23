@@ -24,7 +24,7 @@
  */
 package com.github.caciocavallosilano.cacio.ctc;
 
-import javax.swing.plaf.metal.MetalLookAndFeel;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import java.awt.*;
 import java.io.File;
@@ -74,7 +74,7 @@ public class CTCPreloadClassLoader extends URLClassLoader {
             e.printStackTrace();
         }
 
-        System.setProperty("swing.defaultlaf", MetalLookAndFeel.class.getName());
+        System.setProperty("swing.defaultlaf", NimbusLookAndFeel.class.getName());
     }
 
     public CTCPreloadClassLoader(ClassLoader parent) {

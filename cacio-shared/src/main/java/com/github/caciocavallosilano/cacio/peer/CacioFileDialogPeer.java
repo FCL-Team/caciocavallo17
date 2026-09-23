@@ -88,8 +88,4 @@ class CacioFileDialogPeer extends CacioDialogPeer
         fileChooser.setFileFilter(new ProxyFilter(filter));
     }
 
-    @Override
-    public GraphicsConfiguration getAppropriateGraphicsConfiguration(GraphicsConfiguration gc) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

@@ -54,8 +54,8 @@ import sun.awt.*;
 class CacioWindowPeer extends CacioContainerPeer<Window, JRootPane>
                       implements WindowPeer {
 
-    private static boolean decorateWindows = false;
-    private static boolean decorateDialogs = false;
+    private static boolean decorateWindows = true;
+    private static boolean decorateDialogs = true;
 
     private static final Font defaultFont =
         new Font(Font.DIALOG, Font.PLAIN, 12);
@@ -379,7 +379,8 @@ class CacioWindowPeer extends CacioContainerPeer<Window, JRootPane>
     }
 
     @Override
-    public GraphicsConfiguration getAppropriateGraphicsConfiguration(GraphicsConfiguration gc) {
+    public void repositionSecurityWarning() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
 }
