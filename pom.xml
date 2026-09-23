@@ -3,7 +3,7 @@
 
   <groupId>com.github.caciocavallosilano</groupId>
   <artifactId>cacio</artifactId>
-  <version>1.19-SNAPSHOT</version>
+  <version>1.19.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Caciocavallo Main Module</name>
@@ -38,6 +38,7 @@
   <modules>
     <module>cacio-shared</module>
     <module>cacio-tta</module>
+    <module>cacio-agent</module>
   </modules>
 
   <distributionManagement>
@@ -61,10 +62,11 @@
             <additionalOption>-XDignore.symbol.file=true</additionalOption>
             <additionalOption>--add-exports=java.desktop/java.awt.peer=ALL-UNNAMED</additionalOption>
             <additionalOption>--add-exports=java.desktop/sun.awt=ALL-UNNAMED</additionalOption>
+            <additionalOption>--add-exports=java.desktop/sun.awt.image=ALL-UNNAMED</additionalOption>
             <additionalOption>--add-exports=java.desktop/sun.awt.event=ALL-UNNAMED</additionalOption>
             <additionalOption>--add-exports=java.desktop/sun.font=ALL-UNNAMED</additionalOption>
             <additionalOption>--add-exports=java.desktop/sun.java2d.pipe=ALL-UNNAMED</additionalOption>
-            <additionalOption>--add-exports=java.base/java.security.PrivilegedAction=ALL-UNNAMED</additionalOption>
+            <additionalOption>--add-exports=java.base/java.security=ALL-UNNAMED</additionalOption>
             <additionalOption>--add-exports=java.desktop/sun.awt.image=ALL-UNNAMED</additionalOption>
             <additionalOption>--add-exports=java.desktop/sun.java2d=ALL-UNNAMED</additionalOption>
             <additionalOption>--add-exports=java.desktop/java.awt.dnd.peer=ALL-UNNAMED</additionalOption>
@@ -136,11 +138,13 @@
               --add-exports=java.desktop/sun.java2d=ALL-UNNAMED
               --add-exports=java.desktop/java.awt.dnd.peer=ALL-UNNAMED
               --add-exports=java.desktop/sun.awt=ALL-UNNAMED
+              --add-exports=java.desktop/sun.awt.image=ALL-UNNAMED
               --add-exports=java.desktop/sun.awt.event=ALL-UNNAMED
               --add-exports=java.desktop/sun.awt.datatransfer=ALL-UNNAMED
-              --add-exports=java.base/java.security.PrivilegedAction=ALL-UNNAMED
+              --add-exports=java.base/java.security=ALL-UNNAMED
               --add-opens=java.base/java.util=ALL-UNNAMED
               --add-opens=java.desktop/java.awt=ALL-UNNAMED
+              --add-opens=java.desktop/java.awt.image=ALL-UNNAMED
               --add-opens=java.desktop/sun.java2d=ALL-UNNAMED
               --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
             </argLine>

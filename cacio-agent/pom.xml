@@ -5,7 +5,7 @@
     <artifactId>cacio</artifactId>
     <version>1.19.1-SNAPSHOT</version>
   </parent>
-  <artifactId>cacio-tta</artifactId>
+  <artifactId>cacio-agent</artifactId>
   <packaging>jar</packaging>
   <name>CacioTAA Java Module</name>
   <dependencyManagement>
@@ -45,6 +45,11 @@
       <artifactId>jide-oss</artifactId>
       <version>3.6.18</version>
     </dependency>
+    <dependency>
+        <groupId>com.github.caciocavallosilano</groupId>
+        <artifactId>cacio-tta</artifactId>
+        <version>1.19.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -63,10 +68,23 @@
             <arg>--add-exports=java.desktop/sun.java2d=ALL-UNNAMED</arg>
             <arg>--add-exports=java.desktop/java.awt.dnd.peer=ALL-UNNAMED</arg>
             <arg>--add-exports=java.desktop/sun.awt=ALL-UNNAMED</arg>
-            <arg>--add-exports=java.desktop/sun.awt.image=ALL-UNNAMED</arg>
             <arg>--add-exports=java.desktop/sun.awt.datatransfer=ALL-UNNAMED</arg>
             <arg>--add-exports=java.desktop/sun.font=ALL-UNNAMED</arg>
           </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Premain-Class>com.github.caciocavallosilano.cacio.agent.CTCJavaAgent</Premain-Class>
+              <Can-Redefine-Classes>true</Can-Redefine-Classes>
+              <Can-Retransform-Classes>true</Can-Retransform-Classes>
+            </manifestEntries>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
